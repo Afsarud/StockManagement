@@ -1,6 +1,6 @@
 ﻿namespace StockManagementSystem
 {
-    partial class CategoryUI
+    partial class SupplierUI
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // CategoryUI
+            // SupplierUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 661);
-            this.Name = "CategoryUI";
-            this.Text = "Category";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "SupplierUI";
+            this.Text = "Supplier";
             this.ResumeLayout(false);
 
         }
@@ -44,4 +44,3 @@
         #endregion
     }
 }
-

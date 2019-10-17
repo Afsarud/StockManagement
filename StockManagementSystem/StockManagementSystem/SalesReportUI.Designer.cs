@@ -1,6 +1,6 @@
 ﻿namespace StockManagementSystem
 {
-    partial class CategoryUI
+    partial class SalesReportUI
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // CategoryUI
+            // SalesReportUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 661);
-            this.Name = "CategoryUI";
-            this.Text = "Category";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "SalesReportUI";
+            this.Text = "Periodic Income Expense Report on Sales";
             this.ResumeLayout(false);
 
         }
@@ -44,4 +44,3 @@
         #endregion
     }
 }
-
