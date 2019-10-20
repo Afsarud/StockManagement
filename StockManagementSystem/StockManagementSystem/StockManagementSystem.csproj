@@ -60,6 +60,7 @@
       <DependentUpon>CustomerUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\Supplier.cs" />
     <Compile Include="ProductUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +82,7 @@
       <DependentUpon>PurcheseReportUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Repository\StockRepository.cs" />
+    <Compile Include="Repository\SupplierRepository.cs" />
     <Compile Include="SalesReportUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +143,7 @@
     <EmbeddedResource Include="SupplierUI.resx">
       <DependentUpon>SupplierUI.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\StockManagementSystem.Model.Supplier.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
