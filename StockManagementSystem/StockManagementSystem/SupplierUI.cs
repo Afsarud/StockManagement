@@ -140,21 +140,24 @@ namespace StockManagementSystem
 
         private void showDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 7)
+            if (e.ColumnIndex == 8 && e.RowIndex!=-1)
             {
                 //codeTextBox.Enabled = false;
-                if (showDataGridView.CurrentRow != null) showDataGridView.CurrentRow.Selected = true;
-                _supplier.ID = Convert.ToInt32(showDataGridView.Rows[e.RowIndex].Cells[1].Value);
-                codeTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
-                nameTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
-                addressTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
-                emailTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
-                contactTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
-                contactPersonTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
+                if(showDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    _supplier.ID = Convert.ToInt32(showDataGridView.Rows[e.RowIndex].Cells[1].Value);
+                    codeTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    nameTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    addressTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    emailTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    contactTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    contactPersonTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
 
 
 
-                saveButton.Text = "Update";
+                    saveButton.Text = "Update";
+                }
+                
             }
         }
     }
