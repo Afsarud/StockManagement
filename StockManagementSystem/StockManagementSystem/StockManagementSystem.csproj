@@ -63,6 +63,7 @@
     </Compile>
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\ProductViewModel.cs" />
     <Compile Include="ProductUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +148,7 @@
     </EmbeddedResource>
     <None Include="Properties\DataSources\StockManagementSystem.Model.Category.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Product.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystem.Model.ProductViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

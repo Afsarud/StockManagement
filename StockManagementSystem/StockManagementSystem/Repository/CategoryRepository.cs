@@ -23,14 +23,14 @@ namespace StockManagementSystem.Repository
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
             Category category1 = new Category
             {
-                ID= 0,
+                ID= 1,
                 Name = "--Select--"
             };
             categories.Add(category1);
             while (sqlDataReader.Read())
             {
                 Category category = new Category();
-                category.ID = Convert.ToInt32(sqlDataReader["Id"]);
+                category.ID = Convert.ToInt32(sqlDataReader["ID"]);
                 category.Code = sqlDataReader["Code"].ToString();
                 category.Name = sqlDataReader["Name"].ToString();
                 categories.Add(category);

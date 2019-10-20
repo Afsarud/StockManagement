@@ -15,17 +15,35 @@ Select * FROM Categories
 CREATE TABLE Products
 (
 ID INT IDENTITY(1,1) PRIMARY KEY,
-ProductCode VARCHAR(50),
-ProductName VARCHAR(50),
+Code VARCHAR(50),
+Name VARCHAR(50),
 ReorderLevel INT,
 ProductDescription VARCHAR(MAX),
 CateogoryID INT REFERENCES Categories (ID),
 
 )
 
+select * from Products where Code=1 AND Name='eew'
+select Code,Name,CateogoryID,ReorderLevel from Products where Code=1 OR Name='dgd'
+
+
+SELECT P.Code as ProductCode, p.Name as ProductName,ReorderLevel,ProductDescription,c.Name as CategoryName
+from Products as p Left join Categories as c ON c.ID = p.CateogoryID
+SELECT * FROM Products
+
+--viewcreate
+CREATE VIEW ProductDetailsView 
+AS
+SELECT P.Code, p.Name as ProductName,ReorderLevel,p.ProductDescription as [Description],c.Name as Category
+from Products as p Left join Categories as c ON c.ID = p.CateogoryID
+
+SELECT * FROM ProductDetailsView
+
+
 Drop table Products
-		
+Delete from Products where ID >3
 Select * FROM Products
+
 
 insert into Products values('1','asa','3','ds','1')
 

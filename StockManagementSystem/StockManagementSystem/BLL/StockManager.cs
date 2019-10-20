@@ -2,6 +2,7 @@
 using StockManagementSystem.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +14,22 @@ namespace StockManagementSystem.BLL
         StockRepository _stockRepository = new StockRepository();
         Product _product = new Product();
 
-        public bool Save(Product product)
+        public bool GetSave(Product product)
         {
-            return _stockRepository.Save(product);
+            return _stockRepository.GetSave(product);
+        }
+        public bool IsNameExists(Product product)
+        {
+            return _stockRepository.IsNameExists(product);
+        }
+        public bool Update(Product product)
+        {
+            return _stockRepository.Update(product);
+        }
+
+        public DataTable Display()
+        {
+           return _stockRepository.Display();
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using StockManagementSystem.Model;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,20 +13,18 @@ namespace StockManagementSystem.Repository
 {
     class StockRepository
     {
+        string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         Product product = new Product();
 
-        public bool Save(Product product)
+        public bool GetSave(Product product)
         {
             bool isAdded = false;
-            try
+            try 
             {
                 //Connection
-               // Data Source = DESKTOP - SSEF4DE; Initial Catalog = SMS; Integrated Security = True
-                string connectionString = @"Server=DESKTOP-SSEF4DE; Database=SMS; Integrated Security = True";
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
 
                 //Command 
-                //INSERT INTO Items (Name, Price) Values ('Black', 120)
                 string commandString = @"INSERT INTO Products Values ('" + product.Code + "', '" + product.Name + "', " + product.ReorderLevel + ",' " + product.ProductDescription + "', " + product.CateogoryID + ")";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
@@ -49,5 +49,109 @@ namespace StockManagementSystem.Repository
 
             return isAdded;
         }
+
+        public bool IsNameExists(Product product)
+        {
+            bool exists = false;
+            try
+            {
+                //Connection
+                
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+                //Command 
+                //string commandString = @"SELECT Code,Name FROM Items WHERE Name='" + item.Name + "'";
+                string commandString = @"SELECT Code,Name FROM Products WHERE Code = " + product.Code+" OR Name = '"+product.Name+"'";
+          
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                //Open
+                sqlConnection.Open();
+                //Show
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                if (dataTable.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+                //Close
+                sqlConnection.Close();
+
+            }
+            catch (Exception exeption)
+            {
+                MessageBox.Show(exeption.Message);
+            }
+
+            return exists;
+        }
+
+        public bool Update(Product product)
+        {
+            try
+            {
+                //Connection
+                string connectionString = @"Server= DESKTOP-GIE8L6J; Database=CoffeeShopAssignmentUI; Integrated Security=True";
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+                //Command 
+                //UPDATE Items SET Name =  'Hot' , Price = 130 WHERE ID = 1
+                string commandString = @"UPDATE Products SET Name = " + product.ReorderLevel + "," + product.ProductDescription + " WHERE Id = " + product.ID + "";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                //Open
+                sqlConnection.Open();
+
+                //Insert
+                int isExecuted = sqlCommand.ExecuteNonQuery();
+                if (isExecuted > 0)
+                {
+                    return true;
+                }
+                //Close
+                sqlConnection.Close();
+
+
+            }
+            catch (Exception exeption)
+            {
+                MessageBox.Show(exeption.Message);
+            }
+            return false;
+        }
+
+        public DataTable Display()
+        {
+            DataTable dataTable = new DataTable();
+            try
+            {
+                //Connection
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+                //Command 
+                //@"SELECT * FROM ProductDetailsView"; 
+                string commandString = @"SELECT * FROM ProductDetailsView";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                //Open
+                sqlConnection.Open();
+
+                //Show
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+
+                sqlDataAdapter.Fill(dataTable);
+               
+                //Close
+                sqlConnection.Close();
+
+            }
+            catch (Exception exeption)
+            {
+                MessageBox.Show(exeption.Message);
+            }
+            return dataTable;
+        }
+
     }
 }
