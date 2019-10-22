@@ -60,7 +60,7 @@ namespace StockManagementSystem.Repository
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
 
                 //Command 
-                string commandString = @"SELECT * FROM Products WHERE Code = " + product.Code+"";
+                string commandString = @"SELECT Code FROM Products WHERE Code = " + product.Code+" AND ID !="+product.ID+" ";
           
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
@@ -96,7 +96,7 @@ namespace StockManagementSystem.Repository
 
                 //Command 
                 //string commandString = @"SELECT Code,Name FROM Items WHERE Name='" + item.Name + "'";
-                string commandString = @"SELECT * FROM Products WHERE Name = '" + product.Name + "'";
+                string commandString = @"SELECT Name FROM Products Where Name = '" + product.Name + "' AND ID !=" + product.ID + " ";
 
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 

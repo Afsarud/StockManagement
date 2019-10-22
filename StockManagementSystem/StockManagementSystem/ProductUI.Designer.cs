@@ -47,6 +47,9 @@
             this.productViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productViewModelBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.showDataGridView = new System.Windows.Forms.DataGridView();
+            this.productViewModelBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.productViewModelBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.productViewModelBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.Sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,9 +57,7 @@
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reorderLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productViewModelBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
-            this.productViewModelBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.productViewModelBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).BeginInit();
@@ -202,15 +203,28 @@
             this.nameDataGridViewTextBoxColumn,
             this.categoryDataGridViewTextBoxColumn,
             this.reorderLevelDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn});
+            this.descriptionDataGridViewTextBoxColumn,
+            this.Edit});
             this.showDataGridView.DataSource = this.productViewModelBindingSource4;
             this.showDataGridView.Location = new System.Drawing.Point(148, 374);
             this.showDataGridView.Name = "showDataGridView";
-            this.showDataGridView.Size = new System.Drawing.Size(644, 168);
+            this.showDataGridView.Size = new System.Drawing.Size(740, 168);
             this.showDataGridView.TabIndex = 13;
             this.showDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.showDataGridView_CellContentClick);
             this.showDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.showDataGridView_CellDoubleClick);
             this.showDataGridView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.showDataGridView_RowPostPaint_1);
+            // 
+            // productViewModelBindingSource4
+            // 
+            this.productViewModelBindingSource4.DataSource = typeof(StockManagementSystem.Model.ProductViewModel);
+            // 
+            // productViewModelBindingSource3
+            // 
+            this.productViewModelBindingSource3.DataSource = typeof(StockManagementSystem.Model.ProductViewModel);
+            // 
+            // productViewModelBindingSource2
+            // 
+            this.productViewModelBindingSource2.DataSource = typeof(StockManagementSystem.Model.ProductViewModel);
             // 
             // Sl
             // 
@@ -254,17 +268,12 @@
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             // 
-            // productViewModelBindingSource4
+            // Edit
             // 
-            this.productViewModelBindingSource4.DataSource = typeof(StockManagementSystem.Model.ProductViewModel);
-            // 
-            // productViewModelBindingSource3
-            // 
-            this.productViewModelBindingSource3.DataSource = typeof(StockManagementSystem.Model.ProductViewModel);
-            // 
-            // productViewModelBindingSource2
-            // 
-            this.productViewModelBindingSource2.DataSource = typeof(StockManagementSystem.Model.ProductViewModel);
+            this.Edit.HeaderText = "Action";
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForButtonValue = true;
             // 
             // ProductUI
             // 
@@ -323,6 +332,7 @@
         private System.Windows.Forms.DataGridView showDataGridView;
         private System.Windows.Forms.BindingSource productViewModelBindingSource2;
         private System.Windows.Forms.BindingSource productViewModelBindingSource3;
+        private System.Windows.Forms.BindingSource productViewModelBindingSource4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sl;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
@@ -330,6 +340,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn reorderLevelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource productViewModelBindingSource4;
+        private System.Windows.Forms.DataGridViewButtonColumn Edit;
     }
 }
