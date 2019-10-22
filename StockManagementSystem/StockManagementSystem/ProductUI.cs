@@ -127,22 +127,22 @@ namespace StockManagementSystem
             //display data to gridview
             showDataGridView.DataSource = _stockManager.Display();
 
-           
-            DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
-            editButton.FlatStyle = FlatStyle.Popup;
-            editButton.HeaderText = "Action";
-            editButton.Name = "Edit";
-            editButton.UseColumnTextForButtonValue = true;
-            editButton.Text = "Edit";
-            editButton.Width = 60;
-            if(showDataGridView.Columns.Contains(editButton.Name = "Edit"))
-            {
 
-            }
-            else
-            {
-                showDataGridView.Columns.Add(editButton);
-            }
+            //DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
+            //editButton.FlatStyle = FlatStyle.Popup;
+            //editButton.HeaderText = "Action";
+            //editButton.Name = "Edit";
+            //editButton.UseColumnTextForButtonValue = true;
+            //editButton.Text = "Edit";
+            //editButton.Width = 60;
+            //if (showDataGridView.Columns.Contains(editButton.Name = "Edit"))
+            //{
+
+            //}
+            //else
+            //{
+            //    showDataGridView.Columns.Add(editButton);
+            //}
 
         }
 
@@ -174,7 +174,7 @@ namespace StockManagementSystem
 
         private void showDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex==7)
+            if(showDataGridView.Columns[e.ColumnIndex].Name=="Edit")
             {
                 //codeTextBox.Enabled = false;
                 if (showDataGridView.CurrentRow != null)
@@ -186,7 +186,6 @@ namespace StockManagementSystem
                     categoryComboBox.Text = showDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
                     reOrderTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
                     descriptionTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
-
                     saveButton.Text = "Update";
                 }
             }
