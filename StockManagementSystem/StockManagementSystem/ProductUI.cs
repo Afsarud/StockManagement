@@ -38,7 +38,7 @@ namespace StockManagementSystem
             
             _product.Code = codeTextBox.Text;
             //Set Code as Mandatory
-            if (String.IsNullOrEmpty(codeTextBox.Text))
+            if (String.IsNullOrEmpty(_product.Code))
             {
                 MessageBox.Show("Code Can not be Empty!!!");
                 return;
@@ -50,7 +50,7 @@ namespace StockManagementSystem
                 return;
             }
             //Check UNIQUE
-            if (_stockManager.IsNameExists(_product))
+            if (_stockManager.IsCodeExists(_product))
             {
                 MessageBox.Show(codeTextBox.Text+"Code already Exist !");
                 return;
@@ -58,7 +58,7 @@ namespace StockManagementSystem
 
             _product.Name = nameTextBox.Text;
             //Set Price as Mandatory
-            if (String.IsNullOrEmpty(nameTextBox.Text))
+            if (String.IsNullOrEmpty(_product.Name))
             {
                 MessageBox.Show("Name Can not be Empty!!!");
                 return;
@@ -67,6 +67,7 @@ namespace StockManagementSystem
             if (_stockManager.IsNameExists(_product))
             {
                 MessageBox.Show(nameTextBox.Text + "Name already Exist !");
+                return;
             }
             //Set Price as Mandatory
             if (String.IsNullOrEmpty(reOrderTextBox.Text))
@@ -78,9 +79,37 @@ namespace StockManagementSystem
 
             _product.ProductDescription = descriptionTextBox.Text;
             //call Method and show gridview
-            showDataGridView.DataSource = _stockManager.GetSave(_product);
+            //showDataGridView.DataSource = _stockManager.GetSave(_product);
             showDataGridView.DataSource = _stockManager.Display();
-            
+
+
+            //Update information 
+            if (saveButton.Text == "Save")
+            {
+
+                if (_stockManager.GetSave(_product))
+                {
+                    MessageBox.Show("Data Saved Successfully..!!");
+                    showDataGridView.DataSource = _stockManager.Display();
+                }
+                else
+                {
+                    MessageBox.Show("Not Saved..!!");
+                }
+            }
+            else 
+            {
+                if (_stockManager.Update(_product))
+                {
+                    MessageBox.Show("Data Update Successfully..!!");
+                    showDataGridView.DataSource = _stockManager.Display();
+                }
+                else
+                {
+                    MessageBox.Show("Not Update..!!");
+                }
+            }
+
             //clear field
             nameTextBox.Clear();
             codeTextBox.Clear();
@@ -148,15 +177,18 @@ namespace StockManagementSystem
             if(e.ColumnIndex==7)
             {
                 //codeTextBox.Enabled = false;
-                if (showDataGridView.CurrentRow != null) showDataGridView.CurrentRow.Selected = true;
-                _product.ID = Convert.ToInt32(showDataGridView.Rows[e.RowIndex].Cells[1].Value);
-                codeTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
-                nameTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
-                reOrderTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
-                descriptionTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
-                categoryComboBox.Text = showDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+                if (showDataGridView.CurrentRow != null)
+                {
+                    showDataGridView.CurrentRow.Selected = true;
+                    _product.ID = Convert.ToInt32(showDataGridView.Rows[e.RowIndex].Cells[1].Value);
+                    codeTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    nameTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    categoryComboBox.Text = showDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    reOrderTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    descriptionTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
 
-                saveButton.Text = "Update";
+                    saveButton.Text = "Update";
+                }
             }
             //else if(e.ColumnIndex==7)
             //{

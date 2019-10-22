@@ -50,7 +50,7 @@ namespace StockManagementSystem.Repository
             return isAdded;
         }
 
-        public bool IsNameExists(Product product)
+        public bool IsCodeExists(Product product)
         {
             bool exists = false;
             try
@@ -60,9 +60,44 @@ namespace StockManagementSystem.Repository
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
 
                 //Command 
-                //string commandString = @"SELECT Code,Name FROM Items WHERE Name='" + item.Name + "'";
-                string commandString = @"SELECT Code,Name FROM Products WHERE Code = " + product.Code+" OR Name = '"+product.Name+"'";
+                string commandString = @"SELECT * FROM Products WHERE Code = " + product.Code+"";
           
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                //Open
+                sqlConnection.Open();
+                //Show
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                if (dataTable.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+                //Close
+                sqlConnection.Close();
+
+            }
+            catch (Exception exeption)
+            {
+                MessageBox.Show(exeption.Message);
+            }
+
+            return exists;
+        }
+        public bool IsNameExists(Product product)
+        {
+            bool exists = false;
+            try
+            {
+                //Connection
+
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+                //Command 
+                //string commandString = @"SELECT Code,Name FROM Items WHERE Name='" + item.Name + "'";
+                string commandString = @"SELECT * FROM Products WHERE Name = '" + product.Name + "'";
+
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 //Open
@@ -92,12 +127,11 @@ namespace StockManagementSystem.Repository
             try
             {
                 //Connection
-                string connectionString = @"Server= DESKTOP-GIE8L6J; Database=CoffeeShopAssignmentUI; Integrated Security=True";
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
+               SqlConnection sqlConnection = new SqlConnection(connectionString);
 
                 //Command 
                 //UPDATE Items SET Name =  'Hot' , Price = 130 WHERE ID = 1
-                string commandString = @"UPDATE Products SET Name = " + product.ReorderLevel + "," + product.ProductDescription + " WHERE Id = " + product.ID + "";
+                string commandString = @"UPDATE Products SET Code = '" + product.Code + "',Name= '" + product.Name + "',ReorderLevel= '" + product.ReorderLevel + "',ProductDescription= ' " + product.ProductDescription + "',CateogoryID= '" + product.CateogoryID + "' WHERE ID = " + product.ID + " ";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 //Open
@@ -120,7 +154,7 @@ namespace StockManagementSystem.Repository
             }
             return false;
         }
-
+        
         public DataTable Display()
         {
             DataTable dataTable = new DataTable();

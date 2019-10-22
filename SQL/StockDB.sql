@@ -20,11 +20,12 @@ Name VARCHAR(50),
 ReorderLevel INT,
 ProductDescription VARCHAR(MAX),
 CateogoryID INT REFERENCES Categories (ID),
-
 )
 
 select * from Products where Code=1 AND Name='eew'
 select Code,Name,CateogoryID,ReorderLevel from Products where Code=1 OR Name='dgd'
+
+delect table Products
 
 
 SELECT P.Code as ProductCode, p.Name as ProductName,ReorderLevel,ProductDescription,c.Name as CategoryName
@@ -42,6 +43,7 @@ SELECT * FROM ProductDetailsView
 
 Drop table Products
 Delete from Products where ID >3
+
 Select * FROM Products
 
 

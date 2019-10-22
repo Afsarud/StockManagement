@@ -18,6 +18,7 @@ namespace StockManagementSystem.Repository
             SqlConnection sqlConnection = new SqlConnection(connectionString);
             string queryString = @"SELECT * FROM Categories";
             SqlCommand sqlCommand = new SqlCommand(queryString, sqlConnection);
+
             sqlConnection.Open();
 
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();

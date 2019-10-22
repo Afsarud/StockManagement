@@ -18,10 +18,19 @@ namespace StockManagementSystem.BLL
         {
             return _stockRepository.GetSave(product);
         }
+        public bool IsCodeExists(Product product)
+        {
+            return _stockRepository.IsCodeExists(product);
+        }
         public bool IsNameExists(Product product)
         {
             return _stockRepository.IsNameExists(product);
         }
+
+        //public bool Update(Product product)
+        //{
+        //    return _stockRepository.Update(product);
+        //}
         public bool Update(Product product)
         {
             return _stockRepository.Update(product);
