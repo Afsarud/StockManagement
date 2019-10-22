@@ -1,5 +1,8 @@
-﻿using System;
+﻿using StockManagementSystem.Model;
+using StockManagementSystem.Repository;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +14,7 @@ namespace StockManagementSystem.BLL
 {
     class StockManager
     {
+
         SupplierRepository _supplierRepository = new SupplierRepository();
         Supplier _supplier = new Supplier();
 
@@ -45,6 +49,7 @@ namespace StockManagementSystem.BLL
         {
             return _supplierRepository.Display();
         }
+
 
     }
 }
