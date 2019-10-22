@@ -1,31 +1,31 @@
-﻿using StockManagementSystem.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
+using StockManagementSystem.Model;
 
 namespace StockManagementSystem.Repository
 {
-    class StockRepository
+    class SupplierRepository
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
-        Product product = new Product();
+        Supplier supplier = new Supplier();
 
-        public bool GetSave(Product product)
+        public bool Save(Supplier supplier)
         {
             bool isAdded = false;
-            try 
+            try
             {
                 //Connection
+                // Data Source = DESKTOP - SSEF4DE; Initial Catalog = SMS; Integrated Security = True
+                string connectionString = @"Server=DESKTOP-LO8RRRJ; Database=SMS; Integrated Security = True";
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
 
                 //Command 
-                string commandString = @"INSERT INTO Products Values ('" + product.Code + "', '" + product.Name + "', " + product.ReorderLevel + ",' " + product.ProductDescription + "', " + product.CateogoryID + ")";
+                //INSERT INTO Items (Name, Price) Values ('Black', 120)
+                string commandString = @"INSERT INTO Suppliers Values ('" + supplier.Code + "', '" + supplier.Name + "', '" + supplier.Address + "','" + supplier.Email + "', " + supplier.Contact+ "," + supplier.ContactPerson + ")";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 //Open
@@ -37,135 +37,142 @@ namespace StockManagementSystem.Repository
                 {
                     isAdded = true;
                 }
-                
+
                 sqlConnection.Close();
 
 
             }
             catch (Exception exeption)
             {
-                MessageBox.Show(exeption.Message);
+                //MessageBox.Show(exeption.Message);
             }
 
             return isAdded;
-        }
-
-        public bool IsCodeExists(Product product)
-        {
-            bool exists = false;
-            try
-            {
-                //Connection
-                
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-
-                //Command 
-                string commandString = @"SELECT Code FROM Products WHERE Code = " + product.Code+" AND ID !="+product.ID+" ";
-          
-                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-                //Open
-                sqlConnection.Open();
-                //Show
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                DataTable dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-                if (dataTable.Rows.Count > 0)
-                {
-                    exists = true;
-                }
-                //Close
-                sqlConnection.Close();
-
-            }
-            catch (Exception exeption)
-            {
-                MessageBox.Show(exeption.Message);
-            }
-
-            return exists;
-        }
-        public bool IsNameExists(Product product)
-        {
-            bool exists = false;
-            try
-            {
-                //Connection
-
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-
-                //Command 
-                //string commandString = @"SELECT Code,Name FROM Items WHERE Name='" + item.Name + "'";
-                string commandString = @"SELECT Name FROM Products Where Name = '" + product.Name + "' AND ID !=" + product.ID + " ";
-
-                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-                //Open
-                sqlConnection.Open();
-                //Show
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                DataTable dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-                if (dataTable.Rows.Count > 0)
-                {
-                    exists = true;
-                }
-                //Close
-                sqlConnection.Close();
-
-            }
-            catch (Exception exeption)
-            {
-                MessageBox.Show(exeption.Message);
-            }
-
-            return exists;
-        }
-
-        public bool Update(Product product)
-        {
-            try
-            {
-                //Connection
-               SqlConnection sqlConnection = new SqlConnection(connectionString);
-
-                //Command 
-                //UPDATE Items SET Name =  'Hot' , Price = 130 WHERE ID = 1
-                string commandString = @"UPDATE Products SET Code = '" + product.Code + "',Name= '" + product.Name + "',ReorderLevel= '" + product.ReorderLevel + "',ProductDescription= ' " + product.ProductDescription + "',CateogoryID= '" + product.CateogoryID + "' WHERE ID = " + product.ID + " ";
-                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-                //Open
-                sqlConnection.Open();
-
-                //Insert
-                int isExecuted = sqlCommand.ExecuteNonQuery();
-                if (isExecuted > 0)
-                {
-                    return true;
-                }
-                //Close
-                sqlConnection.Close();
-
-
-            }
-            catch (Exception exeption)
-            {
-                MessageBox.Show(exeption.Message);
-            }
-            return false;
-        }
         
+        }
+
+        public bool IsCodeExists(string code)
+        {
+            bool exists = false;
+            try
+            {
+                //Connection
+                string connectionString = @"Server=DESKTOP-LO8RRRJ; Database=SMS; Integrated Security=True";
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+                //Command 
+
+                string commandString = @"SELECT * FROM Suppliers WHERE Code='" + code + "'";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                //Open
+                sqlConnection.Open();
+                //Show
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                if (dataTable.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+                //Close
+                sqlConnection.Close();
+
+            }
+            catch (Exception exception)
+            {
+                //MessageBox.Show(exeption.Message);
+            }
+
+            return exists;
+        }
+
+        public bool IsContactExists(string contact)
+        {
+            bool exists = false;
+            try
+            {
+                //Connection
+                string connectionString = @"Server=DESKTOP-LO8RRRJ; Database=SMS; Integrated Security=True";
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+                //Command 
+
+                string commandString = @"SELECT * FROM Suppliers WHERE Contact='" + contact + "'";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                //Open
+                sqlConnection.Open();
+                //Show
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                if (dataTable.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+                //Close
+                sqlConnection.Close();
+
+            }
+            catch (Exception exception)
+            {
+                //MessageBox.Show(exeption.Message);
+            }
+
+            return exists;
+        }
+
+
+        public bool IsEmailExists(string email)
+        {
+            bool exists = false;
+            try
+            {
+                //Connection
+                string connectionString = @"Server=DESKTOP-LO8RRRJ; Database=SMS; Integrated Security=True";
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+                //Command 
+
+                string commandString = @"SELECT * FROM Suppliers WHERE Email='" + email + "'";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                //Open
+                sqlConnection.Open();
+                //Show
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                if (dataTable.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+                //Close
+                sqlConnection.Close();
+
+            }
+            catch (Exception exception)
+            {
+                //MessageBox.Show(exeption.Message);
+            }
+
+            return exists;
+        }
+
         public DataTable Display()
         {
+
             DataTable dataTable = new DataTable();
             try
             {
                 //Connection
+                string connectionString = @"Server=DESKTOP-LO8RRRJ; Database=SMS; Integrated Security=True";
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
 
                 //Command 
-                //@"SELECT * FROM ProductDetailsView"; 
-                string commandString = @"SELECT * FROM ProductDetailsView";
+                //INSERT INTO Items (Name, Price) Values ('Black', 120)
+                string commandString = @"SELECT * FROM Suppliers";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 //Open
@@ -175,17 +182,32 @@ namespace StockManagementSystem.Repository
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
 
                 sqlDataAdapter.Fill(dataTable);
-               
+                //if (dataTable.Rows.Count > 0)
+                //{
+                //    showDataGridView.DataSource = dataTable;
+                //}
+                //else
+                //{
+                //    MessageBox.Show("No Data Found");
+                //}
+
                 //Close
                 sqlConnection.Close();
 
             }
             catch (Exception exeption)
             {
-                MessageBox.Show(exeption.Message);
+                //MessageBox.Show(exeption.Message);
             }
             return dataTable;
+
+
+
+
         }
+
+
+
 
     }
 }
