@@ -6,39 +6,50 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StockManagementSystem.Model;
+using StockManagementSystem.Repository;
+using System.Data;
 
 namespace StockManagementSystem.BLL
 {
     class StockManager
     {
-        StockRepository _stockRepository = new StockRepository();
-        Product _product = new Product();
 
-        public bool GetSave(Product product)
+        SupplierRepository _supplierRepository = new SupplierRepository();
+        Supplier _supplier = new Supplier();
+
+        public bool Save(Supplier supplier)
         {
-            return _stockRepository.GetSave(product);
-        }
-        public bool IsCodeExists(Product product)
-        {
-            return _stockRepository.IsCodeExists(product);
-        }
-        public bool IsNameExists(Product product)
-        {
-            return _stockRepository.IsNameExists(product);
+            return _supplierRepository.Save(supplier);
         }
 
-        //public bool Update(Product product)
+        public bool IsCodeExists(string code)
+        {
+            return _supplierRepository.IsCodeExists(code);
+        }
+
+        public bool IsContactExists(string contact)
+        {
+            return _supplierRepository.IsContactExists(contact);
+        }
+
+        public bool IsEmailExists(string email)
+        {
+            return _supplierRepository.IsEmailExists(email);
+        }
+
+
+        //public bool Update(string Name, double Price, int ItemId)
         //{
-        //    return _stockRepository.Update(product);
+        //    return _itemRepository.Update(Name, Price, ItemId);
         //}
-        public bool Update(Product product)
-        {
-            return _stockRepository.Update(product);
-        }
+
 
         public DataTable Display()
         {
-           return _stockRepository.Display();
+            return _supplierRepository.Display();
         }
+
+
     }
 }
