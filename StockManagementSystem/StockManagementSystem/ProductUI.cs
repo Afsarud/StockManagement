@@ -83,7 +83,7 @@ namespace StockManagementSystem
             showDataGridView.DataSource = _stockManager.Display();
 
 
-            //Update information 
+            //Update information Afsar
             if (saveButton.Text == "Save")
             {
 
