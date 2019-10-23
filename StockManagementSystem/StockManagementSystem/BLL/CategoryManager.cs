@@ -8,14 +8,17 @@ using System.Threading.Tasks;
 
 namespace StockManagementSystem.BLL
 {
-    public class CategoryManager
-    {
-        CategoryRepository _categoryRepository = new CategoryRepository();
-
-       public List<Category> GetAllCategory()
+  
+        public class CategoryManager
         {
+            CategoryRepository _categoryRepository = new CategoryRepository();
 
-            return _categoryRepository.GetAllCategory();
+            public List<Category> GetAllCategory()
+            {
+
+                return _categoryRepository.GetAllCategory();
+            }
         }
-    }
+
+    
 }

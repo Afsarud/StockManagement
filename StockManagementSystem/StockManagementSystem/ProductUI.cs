@@ -29,7 +29,7 @@ namespace StockManagementSystem
         {
             //Input field
             //Set Price as Mandatory
-            _product.CateogoryID = Convert.ToInt32(categoryComboBox.SelectedValue);
+            _product.ID = Convert.ToInt32(categoryComboBox.SelectedValue);
             if (String.IsNullOrEmpty(categoryComboBox.Text))
             {
                 MessageBox.Show("Must be Select Can not be Empty!!!");
@@ -90,7 +90,7 @@ namespace StockManagementSystem
                 if (_stockManager.GetSave(_product))
                 {
                     MessageBox.Show("Data Saved Successfully..!!");
-                    showDataGridView.DataSource = _stockManager.Display();
+                    showDataGridView.DataSource = _stockManager.GetProductDisplay();
                 }
                 else
                 {
@@ -102,7 +102,7 @@ namespace StockManagementSystem
                 if (_stockManager.Update(_product))
                 {
                     MessageBox.Show("Data Update Successfully..!!");
-                    showDataGridView.DataSource = _stockManager.Display();
+                    showDataGridView.DataSource = _stockManager.GetProductDisplay();
                 }
                 else
                 {
@@ -125,24 +125,7 @@ namespace StockManagementSystem
             //Method call, category field data call from category table 
             categoryComboBox.DataSource = _categoryManager.GetAllCategory();
             //display data to gridview
-            showDataGridView.DataSource = _stockManager.Display();
-
-
-            //DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
-            //editButton.FlatStyle = FlatStyle.Popup;
-            //editButton.HeaderText = "Action";
-            //editButton.Name = "Edit";
-            //editButton.UseColumnTextForButtonValue = true;
-            //editButton.Text = "Edit";
-            //editButton.Width = 60;
-            //if (showDataGridView.Columns.Contains(editButton.Name = "Edit"))
-            //{
-
-            //}
-            //else
-            //{
-            //    showDataGridView.Columns.Add(editButton);
-            //}
+            showDataGridView.DataSource = _stockManager.GetProductDisplay();
 
         }
 
@@ -187,12 +170,11 @@ namespace StockManagementSystem
                     reOrderTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
                     descriptionTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
                     saveButton.Text = "Update";
+                    MessageBox.Show(""+_product.ID);
+
                 }
             }
-            //else if(e.ColumnIndex==7)
-            //{
-
-            //}
+            
 
         }
     }

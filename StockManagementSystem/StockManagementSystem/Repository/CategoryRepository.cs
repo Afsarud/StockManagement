@@ -9,11 +9,14 @@ using System.Threading.Tasks;
 
 namespace StockManagementSystem.Repository
 {
-    class CategoryRepository
+     class CategoryRepository
     {
+        
         string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+
         public List<Category> GetAllCategory()
         {
+            Category _category = new Category();
             List<Category> categories = new List<Category>();
             SqlConnection sqlConnection = new SqlConnection(connectionString);
             string queryString = @"SELECT * FROM Categories";
@@ -24,7 +27,7 @@ namespace StockManagementSystem.Repository
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
             Category category1 = new Category
             {
-                ID= 1,
+                ID = 1,
                 Name = "--Select--"
             };
             categories.Add(category1);
@@ -40,5 +43,5 @@ namespace StockManagementSystem.Repository
         }
 
     }
-       
+
 }

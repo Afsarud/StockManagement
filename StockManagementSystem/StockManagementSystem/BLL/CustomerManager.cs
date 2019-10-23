@@ -29,16 +29,17 @@ namespace StockManagementSystem.BLL
             return _customerRepository.Display();
         }
 
-        public bool IsCodeUniqe(String code )
+        public bool IsCodeUniqe(Customer customer )
         {
-            return _customerRepository.IsCodeUniqe(code);
+            return _customerRepository.IsCodeUniqe(customer);
         }
 
         public bool IsContactUniqe(String contact)
         {
             return _customerRepository.IsContactUniqe(contact);
         }
-
        
+        
+
     }
 }

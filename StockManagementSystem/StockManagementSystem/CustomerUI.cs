@@ -43,8 +43,8 @@ namespace StockManagementSystem
                     MessageBox.Show("Code Must be 4 Charecter");
                 }
 
-
-                if (!_customerManager.IsCodeUniqe(customerCodeTextBox.Text))
+                _customer.Code = customerCodeTextBox.Text;
+                if (!_customerManager.IsCodeUniqe(_customer))
                 {
                     MessageBox.Show("Code Must be unique");
                     return;

@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.showDataGridView = new System.Windows.Forms.DataGridView();
+            this.SNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Action = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.customerBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.addButton = new System.Windows.Forms.Button();
             this.loyaltyPointTextBox = new System.Windows.Forms.TextBox();
             this.customerContactTextBox = new System.Windows.Forms.TextBox();
@@ -43,18 +46,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.customerBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.SNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loyaltyPointDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Action = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.showDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
@@ -67,13 +60,6 @@
             this.showDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.showDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SNo,
-            this.iDDataGridViewTextBoxColumn,
-            this.codeDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.contactDataGridViewTextBoxColumn,
-            this.loyaltyPointDataGridViewTextBoxColumn,
             this.Action});
             this.showDataGridView.DataSource = this.customerBindingSource2;
             this.showDataGridView.Location = new System.Drawing.Point(32, 277);
@@ -82,6 +68,18 @@
             this.showDataGridView.TabIndex = 31;
             this.showDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.showDataGridView_CellContentClick);
             this.showDataGridView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.showDataGridView_RowPostPaint);
+            // 
+            // SNo
+            // 
+            this.SNo.HeaderText = "SNo";
+            this.SNo.Name = "SNo";
+            // 
+            // Action
+            // 
+            this.Action.HeaderText = "Action";
+            this.Action.Name = "Action";
+            this.Action.Text = "Edit";
+            this.Action.UseColumnTextForButtonValue = true;
             // 
             // addButton
             // 
@@ -99,7 +97,6 @@
             this.loyaltyPointTextBox.Name = "loyaltyPointTextBox";
             this.loyaltyPointTextBox.Size = new System.Drawing.Size(116, 20);
             this.loyaltyPointTextBox.TabIndex = 24;
-            this.loyaltyPointTextBox.Text = "0";
             // 
             // customerContactTextBox
             // 
@@ -191,73 +188,6 @@
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 23;
             this.label1.Text = "Code";
-            // 
-            // customerBindingSource2
-            // 
-            this.customerBindingSource2.DataSource = typeof(StockManagementSystem.Model.Customer);
-            // 
-            // customerBindingSource
-            // 
-            this.customerBindingSource.DataSource = typeof(StockManagementSystem.Model.Customer);
-            // 
-            // customerBindingSource1
-            // 
-            this.customerBindingSource1.DataSource = typeof(StockManagementSystem.Model.Customer);
-            // 
-            // SNo
-            // 
-            this.SNo.HeaderText = "SNo";
-            this.SNo.Name = "SNo";
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // contactDataGridViewTextBoxColumn
-            // 
-            this.contactDataGridViewTextBoxColumn.DataPropertyName = "Contact";
-            this.contactDataGridViewTextBoxColumn.HeaderText = "Contact";
-            this.contactDataGridViewTextBoxColumn.Name = "contactDataGridViewTextBoxColumn";
-            // 
-            // loyaltyPointDataGridViewTextBoxColumn
-            // 
-            this.loyaltyPointDataGridViewTextBoxColumn.DataPropertyName = "LoyaltyPoint";
-            this.loyaltyPointDataGridViewTextBoxColumn.HeaderText = "LoyaltyPoint";
-            this.loyaltyPointDataGridViewTextBoxColumn.Name = "loyaltyPointDataGridViewTextBoxColumn";
-            // 
-            // Action
-            // 
-            this.Action.HeaderText = "Action";
-            this.Action.Name = "Action";
-            this.Action.Text = "Edit";
-            this.Action.UseColumnTextForButtonValue = true;
             // 
             // CustomerUI
             // 

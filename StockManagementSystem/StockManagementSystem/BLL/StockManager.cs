@@ -16,7 +16,9 @@ namespace StockManagementSystem.BLL
     {
 
         SupplierRepository _supplierRepository = new SupplierRepository();
+        StockRepository _stockRepository = new StockRepository();
         Supplier _supplier = new Supplier();
+        Product _product = new Product();
 
         public bool Save(Supplier supplier)
         {
@@ -44,6 +46,31 @@ namespace StockManagementSystem.BLL
         //    return _itemRepository.Update(Name, Price, ItemId);
         //}
 
+
+        //Afsar
+      
+        public bool GetSave(Product product)
+        {
+            return _stockRepository.GetSave(product);
+        }
+        public bool IsCodeExists(Product product)
+        {
+            return _stockRepository.IsCodeExists(product);
+        }
+        public bool IsNameExists(Product product)
+        {
+            return _stockRepository.IsNameExists(product);
+        }
+
+        public bool Update(Product product)
+        {
+            return _stockRepository.Update(product);
+        }
+
+        public DataTable GetProductDisplay()
+        {
+            return _stockRepository.GetProductDisplay();
+        }
 
         public DataTable Display()
         {

@@ -24,7 +24,6 @@ namespace StockManagementSystem
         private void saveButton_Click(object sender, EventArgs e)
         {
             
-
             //Code
 
             _supplier.Code = codeTextBox.Text;
@@ -104,10 +103,7 @@ namespace StockManagementSystem
 
 
             showDataGridView.DataSource = _stockManager.Display();
-
-
-
-
+            
         }
 
         private void SupplierUI_Load(object sender, EventArgs e)

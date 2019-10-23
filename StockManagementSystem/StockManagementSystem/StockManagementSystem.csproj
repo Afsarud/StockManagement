@@ -47,11 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
-    <Compile Include="BLL\CustomerManager.cs" />
-
     <Compile Include="BLL\CategoryManager.cs" />
-
+    <Compile Include="BLL\CustomerManager.cs" />
     <Compile Include="BLL\StockManager.cs" />
     <Compile Include="CategoryUI.cs">
       <SubType>Form</SubType>
@@ -65,20 +62,13 @@
     <Compile Include="CustomerUI.Designer.cs">
       <DependentUpon>CustomerUI.cs</DependentUpon>
     </Compile>
-
     <Compile Include="Model\Customer.cs" />
-    <Compile Include="Model\Product.cs" />
     <Compile Include="Model\ViewCustomer.cs" />
-
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Product.cs" />
-
     <Compile Include="Model\Purchase.cs" />
     <Compile Include="Model\Supplier.cs" />
-
     <Compile Include="Model\ProductViewModel.cs" />
-
-
     <Compile Include="ProductUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,11 +89,8 @@
     <Compile Include="PurcheseReportUI.Designer.cs">
       <DependentUpon>PurcheseReportUI.cs</DependentUpon>
     </Compile>
-
     <Compile Include="Repository\CustomerRepository.cs" />
-
     <Compile Include="Repository\CategoryRepository.cs" />
-
     <Compile Include="Repository\StockRepository.cs" />
     <Compile Include="Repository\SupplierRepository.cs" />
     <Compile Include="SalesReportUI.cs">
@@ -166,17 +153,12 @@
     <EmbeddedResource Include="SupplierUI.resx">
       <DependentUpon>SupplierUI.cs</DependentUpon>
     </EmbeddedResource>
-
     <None Include="Properties\DataSources\StockManagementSystem.Model.Customer.datasource" />
-
-
     <None Include="Properties\DataSources\StockManagementSystem.Model.Product.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Supplier.datasource" />
-
     <None Include="Properties\DataSources\StockManagementSystem.Model.Category.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Product.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.ProductViewModel.datasource" />
-
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

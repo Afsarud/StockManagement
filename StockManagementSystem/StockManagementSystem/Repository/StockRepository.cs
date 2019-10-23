@@ -25,7 +25,7 @@ namespace StockManagementSystem.Repository
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
 
                 //Command 
-                string commandString = @"INSERT INTO Products Values ('" + product.Code + "', '" + product.Name + "', " + product.ReorderLevel + ",' " + product.ProductDescription + "', " + product.CateogoryID + ")";
+                string commandString = @"INSERT INTO Products Values ('" + product.Code + "', '" + product.Name + "', " + product.ReorderLevel + ",' " + product.ProductDescription + "', " + product.ID + ")";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 //Open
@@ -131,7 +131,7 @@ namespace StockManagementSystem.Repository
 
                 //Command 
                 //UPDATE Items SET Name =  'Hot' , Price = 130 WHERE ID = 1
-                string commandString = @"UPDATE Products SET Code = '" + product.Code + "',Name= '" + product.Name + "',ReorderLevel= '" + product.ReorderLevel + "',ProductDescription= ' " + product.ProductDescription + "',CateogoryID= '" + product.CateogoryID + "' WHERE ID = " + product.ID + " ";
+                string commandString = @"UPDATE Products SET Code = '" + product.Code + "',Name= '" + product.Name + "',ReorderLevel= '" + product.ReorderLevel + "',ProductDescription= ' " + product.ProductDescription + "',CateogoryID= '" + product.ID + "' WHERE ID = " + product.ID + " ";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 //Open
@@ -155,7 +155,7 @@ namespace StockManagementSystem.Repository
             return false;
         }
         
-        public DataTable Display()
+        public DataTable GetProductDisplay()
         {
             DataTable dataTable = new DataTable();
             try
