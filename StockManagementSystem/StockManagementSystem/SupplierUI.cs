@@ -153,18 +153,10 @@ namespace StockManagementSystem
             emailTextBox.Clear();
             contactTextBox.Clear();
             contactPersonTextBox.Clear();
-
-<<<<<<< HEAD
-
-            
-
-
-
-
-=======
             showDataGridView.DataSource = _stockManager.Display();
-            
->>>>>>> 624d5fbb2c8b91ce929a18a136572b0323b5c492
+
+
+
         }
 
         private void SupplierUI_Load(object sender, EventArgs e)

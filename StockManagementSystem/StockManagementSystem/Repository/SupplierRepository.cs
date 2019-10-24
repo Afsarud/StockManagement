@@ -126,14 +126,11 @@ namespace StockManagementSystem.Repository
 
             return exists;
         }
-<<<<<<< HEAD
+
 
 
         public bool IsEmailExists(Supplier supplier)
-=======
-        
-        public bool IsEmailExists(string email)
->>>>>>> 624d5fbb2c8b91ce929a18a136572b0323b5c492
+
         {
             bool exists = false;
             try
@@ -245,7 +242,7 @@ namespace StockManagementSystem.Repository
             return dataTable;
             
         }
-<<<<<<< HEAD
+
 
         public DataTable GetSupplierFromComboBox()
         {
@@ -330,8 +327,6 @@ namespace StockManagementSystem.Repository
 
 
 
-=======
-        
->>>>>>> 624d5fbb2c8b91ce929a18a136572b0323b5c492
+
     }
 }
