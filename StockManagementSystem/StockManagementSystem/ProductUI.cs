@@ -170,7 +170,7 @@ namespace StockManagementSystem
                     reOrderTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
                     descriptionTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
                     saveButton.Text = "Update";
-                    MessageBox.Show(""+_product.ID);
+                    //MessageBox.Show(""+_product.ID);
 
                 }
             }
