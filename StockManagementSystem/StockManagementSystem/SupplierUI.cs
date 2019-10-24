@@ -26,13 +26,9 @@ namespace StockManagementSystem
             
             //Code
 
-            _supplier.Code = codeTextBox.Text;
+           
 
-            if (_stockManager.IsCodeExists(_supplier.Code))
-            {
-                MessageBox.Show(codeTextBox.Text + "Already Exists!");
-                return;
-            }
+           
 
             if (String.IsNullOrEmpty(codeTextBox.Text))
             {
@@ -40,9 +36,23 @@ namespace StockManagementSystem
                 return;
             }
 
+            if (codeTextBox.TextLength != 4)
+            {
+                MessageBox.Show("Code Must be 4 Charecter");
+            }
+            _supplier.Code = codeTextBox.Text;
+
+            if (_stockManager.IsCodeExists(_supplier))
+            {
+                MessageBox.Show(codeTextBox.Text + " Already Exists!");
+                return;
+            }
+
+
+
             //Name
 
-            _supplier.Name = nameTextBox.Text;
+            
 
             if (String.IsNullOrEmpty(nameTextBox.Text))
             {
@@ -50,21 +60,24 @@ namespace StockManagementSystem
                 return;
             }
 
+            _supplier.Name = nameTextBox.Text;
             //Address
 
             _supplier.Address = addressTextBox.Text;
 
             //Email
 
-            _supplier.Email = emailTextBox.Text;
+            
 
             if (String.IsNullOrEmpty(emailTextBox.Text))
             {
-                MessageBox.Show("Price Can not be Empty!!!");
+                MessageBox.Show("Email Can not be Empty!!!");
                 return;
             }
 
-            if (_stockManager.IsEmailExists(_supplier.Name))
+            _supplier.Email = emailTextBox.Text;
+
+            if (_stockManager.IsEmailExists(_supplier))
             {
                 MessageBox.Show(emailTextBox.Text + "Already Exists!");
                 return;
@@ -72,7 +85,7 @@ namespace StockManagementSystem
 
             //Contact
 
-            _supplier.Contact = contactTextBox.Text;
+            
 
             if (String.IsNullOrEmpty(contactTextBox.Text))
             {
@@ -80,7 +93,9 @@ namespace StockManagementSystem
                 return;
             }
 
-            if (_stockManager.IsContactExists(_supplier.Name))
+            _supplier.Contact = contactTextBox.Text;
+
+            if (_stockManager.IsContactExists(_supplier))
             {
                 MessageBox.Show(contactTextBox.Text + "Already Exists!");
                 return;
@@ -90,20 +105,58 @@ namespace StockManagementSystem
 
             _supplier.ContactPerson = contactPersonTextBox.Text;
 
-            bool isAdded = _stockManager.Save(_supplier);
+            //bool isAdded = _stockManager.Save(_supplier);
 
-            if (isAdded)
-            {
-                MessageBox.Show("Saved");
-            }
-            else
-            {
-                MessageBox.Show("Not Saved");
-            }
-
+            //if (isAdded)
+            //{
+            //    MessageBox.Show("Saved");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Not Saved");
+            //}
 
             showDataGridView.DataSource = _stockManager.Display();
-            
+
+            if (saveButton.Text == "Save")
+            {
+                if (_stockManager.Save(_supplier))
+                {
+                    MessageBox.Show("Saved!");
+                    showDataGridView.DataSource = _stockManager.Display();
+
+                }
+                else
+                {
+                    MessageBox.Show("Not saved!");
+                }
+            }
+
+            else
+            {
+                if (_stockManager.Update(_supplier))
+                {
+                    saveButton.Text = "Save";
+                    MessageBox.Show("Updated!");
+                    showDataGridView.DataSource = _stockManager.Display();
+
+                }
+                else
+                {
+                    MessageBox.Show("Not Updated!");
+                }
+            }
+
+            codeTextBox.Clear();
+            nameTextBox.Clear();
+            addressTextBox.Clear();
+            emailTextBox.Clear();
+            contactTextBox.Clear();
+            contactPersonTextBox.Clear();
+            showDataGridView.DataSource = _stockManager.Display();
+
+
+
         }
 
         private void SupplierUI_Load(object sender, EventArgs e)
@@ -112,21 +165,21 @@ namespace StockManagementSystem
             showDataGridView.DataSource = _stockManager.Display();
 
 
-            DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
-            editButton.FlatStyle = FlatStyle.Popup;
-            editButton.HeaderText = "Action";
-            editButton.Name = "Edit";
-            editButton.UseColumnTextForButtonValue = true;
-            editButton.Text = "Edit";
-            editButton.Width = 60;
-            if (showDataGridView.Columns.Contains(editButton.Name = "Edit"))
-            {
+            //DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
+            //editButton.FlatStyle = FlatStyle.Popup;
+            //editButton.HeaderText = "Action";
+            //editButton.Name = "Edit";
+            //editButton.UseColumnTextForButtonValue = true;
+            //editButton.Text = "Edit";
+            //editButton.Width = 60;
+            //if (showDataGridView.Columns.Contains(editButton.Name = "Edit"))
+            //{
 
-            }
-            else
-            {
-                showDataGridView.Columns.Add(editButton);
-            }
+            //}
+            //else
+            //{
+            //    showDataGridView.Columns.Add(editButton);
+            //}
         }
 
         private void showDataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -136,11 +189,33 @@ namespace StockManagementSystem
 
         private void showDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 8 && e.RowIndex!=-1)
+            //if (e.ColumnIndex == 8 && e.RowIndex!=-1)
+            //{
+            //    //codeTextBox.Enabled = false;
+            //    if(showDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            //    {
+            //        _supplier.ID = Convert.ToInt32(showDataGridView.Rows[e.RowIndex].Cells[1].Value);
+            //        codeTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+            //        nameTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+            //        addressTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+            //        emailTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
+            //        contactTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
+            //        contactPersonTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
+
+
+
+            //        saveButton.Text = "Update";
+            //    }
+
+            //}
+
+
+            if (showDataGridView.Columns[e.ColumnIndex].Name == "Edit")
             {
                 //codeTextBox.Enabled = false;
-                if(showDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                if (showDataGridView.CurrentRow != null)
                 {
+                    showDataGridView.CurrentRow.Selected = true;
                     _supplier.ID = Convert.ToInt32(showDataGridView.Rows[e.RowIndex].Cells[1].Value);
                     codeTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
                     nameTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
@@ -148,12 +223,8 @@ namespace StockManagementSystem
                     emailTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
                     contactTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
                     contactPersonTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
-
-
-
                     saveButton.Text = "Update";
                 }
-                
             }
         }
     }

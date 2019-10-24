@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace StockManagementSystem.Model
 {
+
     public class Category
     {
         public int ID { get; set; }

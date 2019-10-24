@@ -52,6 +52,7 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contactPersonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.showDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -174,11 +175,12 @@
             this.addressDataGridViewTextBoxColumn,
             this.emailDataGridViewTextBoxColumn,
             this.contactDataGridViewTextBoxColumn,
-            this.contactPersonDataGridViewTextBoxColumn});
+            this.contactPersonDataGridViewTextBoxColumn,
+            this.Edit});
             this.showDataGridView.DataSource = this.supplierBindingSource;
-            this.showDataGridView.Location = new System.Drawing.Point(42, 325);
+            this.showDataGridView.Location = new System.Drawing.Point(24, 315);
             this.showDataGridView.Name = "showDataGridView";
-            this.showDataGridView.Size = new System.Drawing.Size(746, 113);
+            this.showDataGridView.Size = new System.Drawing.Size(815, 113);
             this.showDataGridView.TabIndex = 17;
             this.showDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.showDataGridView_CellContentClick);
             this.showDataGridView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.showDataGridView_RowPostPaint);
@@ -236,11 +238,19 @@
             this.contactPersonDataGridViewTextBoxColumn.HeaderText = "ContactPerson";
             this.contactPersonDataGridViewTextBoxColumn.Name = "contactPersonDataGridViewTextBoxColumn";
             // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "Action";
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForButtonValue = true;
+            // 
             // SupplierUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(867, 450);
             this.Controls.Add(this.showDataGridView);
             this.Controls.Add(this.contactPersonTextBox);
             this.Controls.Add(this.saveButton);
@@ -290,5 +300,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contactDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contactPersonDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Edit;
     }
 }
