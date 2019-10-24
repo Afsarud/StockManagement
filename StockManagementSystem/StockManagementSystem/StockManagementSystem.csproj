@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,7 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="BLL\PurchaseManager.cs" />
+=======
+    <Compile Include="BLL\CategoryManager.cs" />
+    <Compile Include="BLL\CustomerManager.cs" />
+>>>>>>> 624d5fbb2c8b91ce929a18a136572b0323b5c492
     <Compile Include="BLL\StockManager.cs" />
     <Compile Include="CategoryUI.cs">
       <SubType>Form</SubType>
@@ -60,10 +66,16 @@
     <Compile Include="CustomerUI.Designer.cs">
       <DependentUpon>CustomerUI.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\ViewCustomer.cs" />
+>>>>>>> 624d5fbb2c8b91ce929a18a136572b0323b5c492
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Purchase.cs" />
     <Compile Include="Model\Supplier.cs" />
+    <Compile Include="Model\ProductViewModel.cs" />
     <Compile Include="ProductUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +96,10 @@
     <Compile Include="PurcheseReportUI.Designer.cs">
       <DependentUpon>PurcheseReportUI.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Include="Repository\CustomerRepository.cs" />
+>>>>>>> 624d5fbb2c8b91ce929a18a136572b0323b5c492
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\StockRepository.cs" />
     <Compile Include="Repository\SupplierRepository.cs" />
@@ -147,9 +163,16 @@
     <EmbeddedResource Include="SupplierUI.resx">
       <DependentUpon>SupplierUI.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <None Include="Properties\DataSources\StockManagementSystem.Model.Category.datasource" />
+=======
+    <None Include="Properties\DataSources\StockManagementSystem.Model.Customer.datasource" />
+>>>>>>> 624d5fbb2c8b91ce929a18a136572b0323b5c492
     <None Include="Properties\DataSources\StockManagementSystem.Model.Product.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Supplier.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystem.Model.Category.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystem.Model.Product.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystem.Model.ProductViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

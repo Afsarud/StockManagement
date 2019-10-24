@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,12 +20,40 @@ namespace StockManagementSystem.Repository
 
             string commandString = @"SELECT * FROM Categories";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+=======
+﻿using StockManagementSystem.Model;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace StockManagementSystem.Repository
+{
+     class CategoryRepository
+    {
+        
+        string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+
+        public List<Category> GetAllCategory()
+        {
+            Category _category = new Category();
+            List<Category> categories = new List<Category>();
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            string queryString = @"SELECT * FROM Categories";
+            SqlCommand sqlCommand = new SqlCommand(queryString, sqlConnection);
+>>>>>>> 624d5fbb2c8b91ce929a18a136572b0323b5c492
 
             sqlConnection.Open();
 
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 624d5fbb2c8b91ce929a18a136572b0323b5c492
             Category category1 = new Category
             {
                 ID = 1,
@@ -42,6 +71,7 @@ namespace StockManagementSystem.Repository
             return categories;
         }
 
+<<<<<<< HEAD
         public List<Product> GetProductFromComboBox()
         {
             List<Product> products = new List<Product>();
@@ -153,4 +183,8 @@ namespace StockManagementSystem.Repository
 
 
     }
+=======
+    }
+
+>>>>>>> 624d5fbb2c8b91ce929a18a136572b0323b5c492
 }

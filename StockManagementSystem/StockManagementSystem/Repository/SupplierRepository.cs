@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using StockManagementSystem.Model;
+using System.Configuration;
+using System.Windows.Forms;
 
 namespace StockManagementSystem.Repository
 {
     class SupplierRepository
     {
+        string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+
         Supplier supplier = new Supplier();
 
         public bool Save(Supplier supplier)
@@ -20,7 +24,7 @@ namespace StockManagementSystem.Repository
             {
                 //Connection
                 // Data Source = DESKTOP - SSEF4DE; Initial Catalog = SMS; Integrated Security = True
-                string connectionString = @"Server=DESKTOP-LO8RRRJ; Database=SMS; Integrated Security = True";
+                //string connectionString = @"Server=DESKTOP-LO8RRRJ; Database=SMS; Integrated Security = True";
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
 
                 //Command 
@@ -57,7 +61,7 @@ namespace StockManagementSystem.Repository
             try
             {
                 //Connection
-                string connectionString = @"Server=DESKTOP-LO8RRRJ; Database=SMS; Integrated Security=True";
+                //string connectionString = @"Server=DESKTOP-LO8RRRJ; Database=SMS; Integrated Security=True";
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
 
                 //Command 
@@ -93,7 +97,7 @@ namespace StockManagementSystem.Repository
             try
             {
                 //Connection
-                string connectionString = @"Server=DESKTOP-LO8RRRJ; Database=SMS; Integrated Security=True";
+                //string connectionString = @"Server=DESKTOP-LO8RRRJ; Database=SMS; Integrated Security=True";
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
 
                 //Command 
@@ -117,20 +121,25 @@ namespace StockManagementSystem.Repository
             }
             catch (Exception exception)
             {
-                //MessageBox.Show(exeption.Message);
+                MessageBox.Show(exception.Message);
             }
 
             return exists;
         }
+<<<<<<< HEAD
 
 
         public bool IsEmailExists(Supplier supplier)
+=======
+        
+        public bool IsEmailExists(string email)
+>>>>>>> 624d5fbb2c8b91ce929a18a136572b0323b5c492
         {
             bool exists = false;
             try
             {
                 //Connection
-                string connectionString = @"Server=DESKTOP-LO8RRRJ; Database=SMS; Integrated Security=True";
+                //string connectionString = @"Server=DESKTOP-LO8RRRJ; Database=SMS; Integrated Security=True";
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
 
                 //Command 
@@ -154,7 +163,7 @@ namespace StockManagementSystem.Repository
             }
             catch (Exception exception)
             {
-                //MessageBox.Show(exeption.Message);
+                MessageBox.Show(exception.Message); 
             }
 
             return exists;
@@ -201,7 +210,7 @@ namespace StockManagementSystem.Repository
             try
             {
                 //Connection
-                string connectionString = @"Server=DESKTOP-LO8RRRJ; Database=SMS; Integrated Security=True";
+                //string connectionString = @"Server=DESKTOP-LO8RRRJ; Database=SMS; Integrated Security=True";
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
 
                 //Command 
@@ -234,11 +243,9 @@ namespace StockManagementSystem.Repository
                 //MessageBox.Show(exeption.Message);
             }
             return dataTable;
-
-
-
-
+            
         }
+<<<<<<< HEAD
 
         public DataTable GetSupplierFromComboBox()
         {
@@ -323,5 +330,8 @@ namespace StockManagementSystem.Repository
 
 
 
+=======
+        
+>>>>>>> 624d5fbb2c8b91ce929a18a136572b0323b5c492
     }
 }
