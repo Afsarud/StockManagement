@@ -17,6 +17,7 @@ namespace StockManagementSystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+
            Application.Run(new CategoryUI());
             Application.Run(new CustomerUI());
 
@@ -25,6 +26,16 @@ namespace StockManagementSystem
             Application.Run(new PurchaseUI());
             Application.Run(new ProductUI());
             
+
+            Application.Run(new CategoryUI());
+            Application.Run(new CustomerUI());
+            Application.Run(new ProductUI());
+            Application.Run(new SupplierUI());
+            Application.Run(new PurchaseUI());
+
+
+            
+
         }
     }
 }

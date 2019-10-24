@@ -47,8 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\CategoryManager.cs" />
     <Compile Include="BLL\CustomerManager.cs" />
+    <Compile Include="BLL\PurchaseManager.cs" />
     <Compile Include="BLL\StockManager.cs" />
     <Compile Include="CategoryUI.cs">
       <SubType>Form</SubType>
@@ -153,6 +153,7 @@
     <EmbeddedResource Include="SupplierUI.resx">
       <DependentUpon>SupplierUI.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\StockManagementSystem.Model.Category.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Customer.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Product.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Supplier.datasource" />

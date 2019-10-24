@@ -30,21 +30,24 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.billTextBox = new System.Windows.Forms.TextBox();
-            this.supplierDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.supplierComboBox = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.codeTextBox = new System.Windows.Forms.TextBox();
-            this.availableQuantityTextBox = new System.Windows.Forms.TextBox();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.supplierDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.billTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.expireDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.manufacturedDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.productComboBox = new System.Windows.Forms.ComboBox();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryComboBox = new System.Windows.Forms.ComboBox();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label15 = new System.Windows.Forms.Label();
+            this.addButton = new System.Windows.Forms.Button();
+            this.remarksRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.mrpTextBox = new System.Windows.Forms.TextBox();
             this.previousMrpTextBox = new System.Windows.Forms.TextBox();
             this.previousUnitPriceTextBox = new System.Windows.Forms.TextBox();
@@ -56,23 +59,22 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.remarksRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.addButton = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.categoryComboBox = new System.Windows.Forms.ComboBox();
-            this.productComboBox = new System.Windows.Forms.ComboBox();
-            this.manufacturedDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.expireDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.availableQuantityTextBox = new System.Windows.Forms.TextBox();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.submitButton = new System.Windows.Forms.Button();
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -89,6 +91,62 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Supplier";
+            // 
+            // supplierComboBox
+            // 
+            this.supplierComboBox.DataSource = this.supplierBindingSource;
+            this.supplierComboBox.DisplayMember = "Name";
+            this.supplierComboBox.FormattingEnabled = true;
+            this.supplierComboBox.Location = new System.Drawing.Point(180, 83);
+            this.supplierComboBox.Name = "supplierComboBox";
+            this.supplierComboBox.Size = new System.Drawing.Size(200, 21);
+            this.supplierComboBox.TabIndex = 3;
+            this.supplierComboBox.ValueMember = "ID";
+            // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataSource = typeof(StockManagementSystem.Model.Supplier);
+            // 
+            // supplierDateTimePicker
+            // 
+            this.supplierDateTimePicker.Location = new System.Drawing.Point(180, 16);
+            this.supplierDateTimePicker.Name = "supplierDateTimePicker";
+            this.supplierDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.supplierDateTimePicker.TabIndex = 2;
+            // 
+            // billTextBox
+            // 
+            this.billTextBox.Location = new System.Drawing.Point(180, 48);
+            this.billTextBox.Name = "billTextBox";
+            this.billTextBox.Size = new System.Drawing.Size(200, 20);
+            this.billTextBox.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(103, 83);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Supplier";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(94, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(80, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Bill/Invoice No:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(103, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Date";
             // 
             // groupBox2
             // 
@@ -127,128 +185,87 @@
             this.groupBox2.Text = "Products";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // label1
+            // expireDateTimePicker
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(103, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Date";
+            this.expireDateTimePicker.Location = new System.Drawing.Point(191, 168);
+            this.expireDateTimePicker.Name = "expireDateTimePicker";
+            this.expireDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.expireDateTimePicker.TabIndex = 25;
             // 
-            // label2
+            // manufacturedDateTimePicker
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(94, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Bill/Invoice No:";
+            this.manufacturedDateTimePicker.Location = new System.Drawing.Point(190, 137);
+            this.manufacturedDateTimePicker.Name = "manufacturedDateTimePicker";
+            this.manufacturedDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.manufacturedDateTimePicker.TabIndex = 24;
             // 
-            // label3
+            // productComboBox
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(103, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Supplier";
+            this.productComboBox.DataSource = this.productBindingSource;
+            this.productComboBox.DisplayMember = "Name";
+            this.productComboBox.FormattingEnabled = true;
+            this.productComboBox.Location = new System.Drawing.Point(190, 46);
+            this.productComboBox.Name = "productComboBox";
+            this.productComboBox.Size = new System.Drawing.Size(198, 21);
+            this.productComboBox.TabIndex = 23;
+            this.productComboBox.ValueMember = "ID";
+            this.productComboBox.SelectedIndexChanged += new System.EventHandler(this.productComboBox_SelectedIndexChanged);
             // 
-            // billTextBox
+            // productBindingSource
             // 
-            this.billTextBox.Location = new System.Drawing.Point(180, 48);
-            this.billTextBox.Name = "billTextBox";
-            this.billTextBox.Size = new System.Drawing.Size(200, 20);
-            this.billTextBox.TabIndex = 1;
+            this.productBindingSource.DataSource = typeof(StockManagementSystem.Model.Product);
             // 
-            // supplierDateTimePicker
+            // categoryComboBox
             // 
-            this.supplierDateTimePicker.Location = new System.Drawing.Point(180, 16);
-            this.supplierDateTimePicker.Name = "supplierDateTimePicker";
-            this.supplierDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.supplierDateTimePicker.TabIndex = 2;
+            this.categoryComboBox.DataSource = this.categoryBindingSource;
+            this.categoryComboBox.DisplayMember = "Name";
+            this.categoryComboBox.FormattingEnabled = true;
+            this.categoryComboBox.Location = new System.Drawing.Point(191, 16);
+            this.categoryComboBox.Name = "categoryComboBox";
+            this.categoryComboBox.Size = new System.Drawing.Size(197, 21);
+            this.categoryComboBox.TabIndex = 22;
+            this.categoryComboBox.ValueMember = "ID";
+            this.categoryComboBox.SelectedIndexChanged += new System.EventHandler(this.categoryComboBox_SelectedIndexChanged);
             // 
-            // supplierComboBox
+            // categoryBindingSource
             // 
-            this.supplierComboBox.DataSource = this.supplierBindingSource;
-            this.supplierComboBox.DisplayMember = "Name";
-            this.supplierComboBox.FormattingEnabled = true;
-            this.supplierComboBox.Location = new System.Drawing.Point(180, 83);
-            this.supplierComboBox.Name = "supplierComboBox";
-            this.supplierComboBox.Size = new System.Drawing.Size(200, 21);
-            this.supplierComboBox.TabIndex = 3;
-            this.supplierComboBox.ValueMember = "ID";
+            this.categoryBindingSource.DataSource = typeof(StockManagementSystem.Model.Category);
             // 
-            // label4
+            // label15
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(82, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Category";
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(460, 16);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(46, 13);
+            this.label15.TabIndex = 21;
+            this.label15.Text = "Quantity";
             // 
-            // label5
+            // addButton
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(82, 47);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Products";
+            this.addButton.Location = new System.Drawing.Point(687, 275);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.TabIndex = 2;
+            this.addButton.Text = "Add";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // label6
+            // remarksRichTextBox
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(82, 81);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Code";
+            this.remarksRichTextBox.Location = new System.Drawing.Point(191, 207);
+            this.remarksRichTextBox.Name = "remarksRichTextBox";
+            this.remarksRichTextBox.Size = new System.Drawing.Size(571, 62);
+            this.remarksRichTextBox.TabIndex = 20;
+            this.remarksRichTextBox.Text = "";
             // 
-            // label7
+            // label16
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(82, 108);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Available Quantity";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(82, 140);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(99, 13);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Manufactured Date";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(82, 172);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(62, 13);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Expire Date";
-            // 
-            // codeTextBox
-            // 
-            this.codeTextBox.Location = new System.Drawing.Point(191, 75);
-            this.codeTextBox.Name = "codeTextBox";
-            this.codeTextBox.ReadOnly = true;
-            this.codeTextBox.Size = new System.Drawing.Size(197, 20);
-            this.codeTextBox.TabIndex = 4;
-            // 
-            // availableQuantityTextBox
-            // 
-            this.availableQuantityTextBox.Location = new System.Drawing.Point(191, 106);
-            this.availableQuantityTextBox.Name = "availableQuantityTextBox";
-            this.availableQuantityTextBox.ReadOnly = true;
-            this.availableQuantityTextBox.Size = new System.Drawing.Size(197, 20);
-            this.availableQuantityTextBox.TabIndex = 5;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(85, 207);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(49, 13);
+            this.label16.TabIndex = 19;
+            this.label16.Text = "Remarks";
             // 
             // mrpTextBox
             // 
@@ -340,72 +357,76 @@
             this.label14.TabIndex = 9;
             this.label14.Text = "Unit Price (Tk)";
             // 
-            // label16
+            // availableQuantityTextBox
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(85, 207);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(49, 13);
-            this.label16.TabIndex = 19;
-            this.label16.Text = "Remarks";
+            this.availableQuantityTextBox.Location = new System.Drawing.Point(191, 106);
+            this.availableQuantityTextBox.Name = "availableQuantityTextBox";
+            this.availableQuantityTextBox.ReadOnly = true;
+            this.availableQuantityTextBox.Size = new System.Drawing.Size(197, 20);
+            this.availableQuantityTextBox.TabIndex = 5;
             // 
-            // remarksRichTextBox
+            // codeTextBox
             // 
-            this.remarksRichTextBox.Location = new System.Drawing.Point(191, 207);
-            this.remarksRichTextBox.Name = "remarksRichTextBox";
-            this.remarksRichTextBox.Size = new System.Drawing.Size(571, 62);
-            this.remarksRichTextBox.TabIndex = 20;
-            this.remarksRichTextBox.Text = "";
+            this.codeTextBox.Location = new System.Drawing.Point(191, 75);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.ReadOnly = true;
+            this.codeTextBox.Size = new System.Drawing.Size(197, 20);
+            this.codeTextBox.TabIndex = 4;
             // 
-            // addButton
+            // label9
             // 
-            this.addButton.Location = new System.Drawing.Point(687, 275);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 2;
-            this.addButton.Text = "Add";
-            this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(82, 172);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(62, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Expire Date";
             // 
-            // label15
+            // label8
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(460, 16);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(46, 13);
-            this.label15.TabIndex = 21;
-            this.label15.Text = "Quantity";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(82, 140);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(99, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Manufactured Date";
             // 
-            // categoryComboBox
+            // label7
             // 
-            this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(191, 16);
-            this.categoryComboBox.Name = "categoryComboBox";
-            this.categoryComboBox.Size = new System.Drawing.Size(197, 21);
-            this.categoryComboBox.TabIndex = 22;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(82, 108);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(92, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Available Quantity";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // productComboBox
+            // label6
             // 
-            this.productComboBox.DataSource = this.productBindingSource;
-            this.productComboBox.FormattingEnabled = true;
-            this.productComboBox.Location = new System.Drawing.Point(190, 46);
-            this.productComboBox.Name = "productComboBox";
-            this.productComboBox.Size = new System.Drawing.Size(198, 21);
-            this.productComboBox.TabIndex = 23;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(82, 81);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(32, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Code";
             // 
-            // manufacturedDateTimePicker
+            // label5
             // 
-            this.manufacturedDateTimePicker.Location = new System.Drawing.Point(190, 137);
-            this.manufacturedDateTimePicker.Name = "manufacturedDateTimePicker";
-            this.manufacturedDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.manufacturedDateTimePicker.TabIndex = 24;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(82, 47);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Products";
             // 
-            // expireDateTimePicker
+            // label4
             // 
-            this.expireDateTimePicker.Location = new System.Drawing.Point(191, 168);
-            this.expireDateTimePicker.Name = "expireDateTimePicker";
-            this.expireDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.expireDateTimePicker.TabIndex = 25;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(82, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Category";
             // 
             // dataGridView1
             // 
@@ -425,14 +446,6 @@
             this.submitButton.UseVisualStyleBackColor = true;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
-            // supplierBindingSource
-            // 
-            this.supplierBindingSource.DataSource = typeof(StockManagementSystem.Model.Supplier);
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(StockManagementSystem.Model.Product);
-            // 
             // PurchaseUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -444,13 +457,15 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "PurchaseUI";
             this.Text = "Purchase";
+            this.Load += new System.EventHandler(this.PurchaseUI_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -496,5 +511,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.BindingSource productBindingSource;
+        private System.Windows.Forms.BindingSource categoryBindingSource;
     }
 }

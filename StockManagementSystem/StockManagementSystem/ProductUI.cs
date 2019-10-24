@@ -16,7 +16,7 @@ namespace StockManagementSystem
        
     {
         //object call
-        CategoryManager _categoryManager = new CategoryManager();
+        //CategoryManager _categoryManager = new CategoryManager();
         StockManager _stockManager = new StockManager();
         Product _product = new Product();
 
@@ -123,7 +123,7 @@ namespace StockManagementSystem
             //ComboBox field DropdownStyle
             categoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             //Method call, category field data call from category table 
-            categoryComboBox.DataSource = _categoryManager.GetAllCategory();
+            //categoryComboBox.DataSource = _categoryManager.GetAllCategory();
             //display data to gridview
             showDataGridView.DataSource = _stockManager.GetProductDisplay();
 

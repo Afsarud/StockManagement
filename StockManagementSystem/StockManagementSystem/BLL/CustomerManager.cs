@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using System.Data.SqlClient;
-using StockManagementSystem.Model;
 using StockManagementSystem.Repository;
+using StockManagementSystem.Model;
+
 
 namespace StockManagementSystem.BLL
 {
-   public class CustomerManager
+    class CustomerManager
     {
         CustomerRepository _customerRepository = new CustomerRepository();
 
@@ -22,14 +21,14 @@ namespace StockManagementSystem.BLL
         public bool UpdateCustomer(Customer _customer)
         {
             return _customerRepository.UpdateCustomer(_customer);
-        }       
+        }
 
         public List<ViewCustomer> Display()
         {
             return _customerRepository.Display();
         }
 
-        public bool IsCodeUniqe(Customer customer )
+        public bool IsCodeUniqe(Customer customer)
         {
             return _customerRepository.IsCodeUniqe(customer);
         }
@@ -38,8 +37,6 @@ namespace StockManagementSystem.BLL
         {
             return _customerRepository.IsContactUniqe(contact);
         }
-       
-        
 
     }
 }
