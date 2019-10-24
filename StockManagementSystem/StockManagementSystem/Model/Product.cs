@@ -12,7 +12,11 @@ namespace StockManagementSystem.Model
         public string Code { set; get; }
         public string Name { set; get; }
         public int ReorderLevel { set; get; }
-        public string ProductDescription { set; get; }
-        public int CateogoryID { set; get; }
+        public string Description { set; get; }
+        public int Quantity { set; get; }
+        public int CategoryID { set; get; }
+        public int PrevUnitPrice { set; get; }
+        public int PrevMRP { set; get; }
+
     }
 }

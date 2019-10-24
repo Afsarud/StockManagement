@@ -19,19 +19,24 @@ namespace StockManagementSystem.BLL
             return _supplierRepository.Save(supplier);
         }
 
-        public bool IsCodeExists(string code)
+        public bool Update(Supplier supplier)
         {
-            return _supplierRepository.IsCodeExists(code);
+            return _supplierRepository.Update(supplier);
         }
 
-        public bool IsContactExists(string contact)
+        public bool IsCodeExists(Supplier supplier)
         {
-            return _supplierRepository.IsContactExists(contact);
+            return _supplierRepository.IsCodeExists(supplier);
         }
 
-        public bool IsEmailExists(string email)
+        public bool IsContactExists(Supplier supplier)
         {
-            return _supplierRepository.IsEmailExists(email);
+            return _supplierRepository.IsContactExists(supplier);
+        }
+
+        public bool IsEmailExists(Supplier supplier)
+        {
+            return _supplierRepository.IsEmailExists(supplier);
         }
 
 
